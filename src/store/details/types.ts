@@ -15,13 +15,20 @@ export const SET_ERROR = "SET_ERROR";
       longitude: string
     },
     delivery: {
-      status: "idle" |
-  "delivered" | "undelivered",
+      status: "idle" | "delivered" | "undelivered",
       latitude: number,
       longitude: number
     }
 }
- 
+
+export interface UpdateDeliveryData {
+    delivery: {
+        status: string,
+        latitude: number,
+        longitude: number
+      }
+}
+
 export interface DeliveryDetailsError {
 	cod: string;
 	message: string;

@@ -21,7 +21,10 @@ const Home:React.FC  =  () => {
             <h4 className="text-center">Your delivery List</h4>
             <div className="col-md-2"></div>
             <div className="col-md-8 ">
-            {loading ? <p>Fetching data...</p>:
+            {loading ? 
+            <p className="text-center">
+            <img src="loading-buffering.gif"/>
+            </p>:
             <div>
               {
               deliveryData && 

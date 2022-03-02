@@ -6,15 +6,22 @@ interface IDeliveryProps {
     deliveryData: DeliveryDetailsListData;
     isActive:boolean,
     makeActive: any,
-    aDeliveryIsActive:boolean
+    aDeliveryIsActive:boolean,
+    updateDelivery:any
   }
  
-const DetailsBox: FC<IDeliveryProps> = ({deliveryData,isActive,makeActive,aDeliveryIsActive}) => { 
+const DetailsBox: FC<IDeliveryProps> = ({deliveryData,isActive,makeActive,aDeliveryIsActive,updateDelivery}) => { 
  
-    const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const setActiveButtonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
          makeActive();
        };
+    const setDeliveredButtonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+      updateDelivery("delivered");
+    };     
+    const setUnDeliveredButtonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+      updateDelivery("undelivered");
+    };        
 
     return (
     <div className="card">
@@ -29,12 +36,20 @@ const DetailsBox: FC<IDeliveryProps> = ({deliveryData,isActive,makeActive,aDeliv
           { deliveryData.delivery.status !== "delivered"  ?
             isActive ? 
             <div>
-             <button className="btn btn-success">Mark as delivered</button>
-             <button className="btn btn-primary">Mark as unDelivered</button> 
+             <button className="btn btn-success" 
+                     onClick={setDeliveredButtonHandler}>
+            Mark as delivered
+            </button>
+
+             <button className="btn btn-primary" 
+                    onClick={setUnDeliveredButtonHandler}>Mark as unDelivered</button> 
               </div>
             :
             <div>
-            <button  disabled={aDeliveryIsActive ? true :false} className="btn btn-success"  onClick={buttonHandler} >Make Active</button>
+            <button  disabled={aDeliveryIsActive ? true :false} 
+                    className="btn btn-success"  
+                    onClick={setActiveButtonHandler} >Make Active
+            </button>
              </div>
             :
             <>
