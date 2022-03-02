@@ -1,16 +1,19 @@
 import React, { FC } from "react";
 import { DeliveryListData } from "../store/delivery/types";
-import { FaBuilding, FaCheck, FaCode, FaLocationArrow, FaRegAddressBook, FaTruckLoading, FaUser } from 'react-icons/fa'
+import { FaBuilding, FaCheck, FaCode, FaLocationArrow, FaRegAddressBook, FaTruckLoading, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+
 interface DeliveryProps {
 	data: DeliveryListData;
 }
 
 const DeliveryListItem: FC<DeliveryProps> = ({ data }) => { 
-    console.log("DeliveryList: FC<DeliveryProps>"+ JSON.stringify(data))
- 	return (
+  	return (
         
          <div className="well-custom">
          <div className="list-group">
+         <Link to={`/details/${data.id}`}>
           <a href="#" className="list-group-item ">
                 <div className="media col-md-3">
                     {
@@ -40,6 +43,7 @@ const DeliveryListItem: FC<DeliveryProps> = ({ data }) => {
                     <h4>{data.delivery.status}</h4>
                 </div>
            </a>
+           </Link>
             </div>
          </div>
           
