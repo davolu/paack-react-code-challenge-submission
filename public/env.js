@@ -7,7 +7,7 @@ window.env = {
   "npm_config_only": "",
   "npm_config_commit_hooks": "true",
   "npm_config_browser": "",
-  "npm_package_gitHead": "e7448f50981e11566b9877daef76939ee20532fe",
+  "npm_package_gitHead": "693d033b982065be498d0c39fd21976acd10a64d",
   "npm_package_dependencies_redux": "^4.1.2",
   "npm_config_also": "",
   "npm_config_sign_git_commit": "",
@@ -203,6 +203,5 @@ window.env = {
   "npm_config_prefix": "/Users/davidoluyalegbenga/.nvm/versions/node/v14.17.0",
   "npm_config_link": "",
   "npm_config_format_package_lock": "true",
-  "COLORTERM": "truecolor",
-  "MAP_API_KEY": "AIzaSyDYvFivEr-DAIlbIWonrgTnQ6k9AQfEodc"
+  "COLORTERM": "truecolor"
 };

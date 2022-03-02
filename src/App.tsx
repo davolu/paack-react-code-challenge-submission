@@ -10,16 +10,14 @@ import ErrorBoundary from "./ErrorBoundary";
 
 const App = () => {
      return(
-     <ErrorBoundary>
       <Provider store={store}>
       <Router>
       <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="/details/:id" element={<Details/>} />
+      <Route path="/details/:deliveryID" element={<Details/>} />
       </Routes>
      </Router>
     </Provider>
-    </ErrorBoundary>
       )
  }
 

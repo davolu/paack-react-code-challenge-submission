@@ -1,14 +1,14 @@
-import { DeliveryListState, DelieveryAction, FETCH_DELIVERIES, SET_LOADING, SET_ERROR } from "./types";
+import { DeliveryDetailsListState, DeliveryDetailsAction, GET_DELIVERY_DETAILS, SET_LOADING, SET_ERROR } from "./types";
 
-const initialState: DeliveryListState = {
+const initialState: DeliveryDetailsListState = {
     data:  null,
     loading: false,
     error: ''
 }
 
-export default (state = initialState, action: DelieveryAction): DeliveryListState => {
+export default (state = initialState, action: DeliveryDetailsAction): DeliveryDetailsListState => {
     switch(action.type) {
-        case FETCH_DELIVERIES:
+        case GET_DELIVERY_DETAILS:
             return {
                 data: action.payload,
                 loading: false,

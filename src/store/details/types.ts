@@ -1,9 +1,10 @@
-export const FETCH_DELIVERIES = "FETCH_DELIVERIES";
+export const GET_DELIVERY_DETAILS = "GET_DELIVERY_DETAILS";
 export const SET_LOADING = "SET_LOADING";
 export const SET_ERROR = "SET_ERROR";
 
- export interface DeliveryListData {
+ export interface DeliveryDetailsListData {
 
+    id: string,
     client: string,
     customer : {
       name: string
@@ -15,20 +16,19 @@ export const SET_ERROR = "SET_ERROR";
     },
     delivery: {
       status: "idle" |
-     "delivered" | "undelivered",
+  "delivered" | "undelivered",
       latitude: number,
       longitude: number
-    },
-    id: string
+    }
 }
  
-export interface DeliveryError {
+export interface DeliveryDetailsError {
 	cod: string;
 	message: string;
 }
-interface GetDeliveryListAction {
-	type: typeof FETCH_DELIVERIES;
-	payload: DeliveryListData[];
+interface GetDeliveryDetailsListAction {
+	type: typeof GET_DELIVERY_DETAILS;
+	payload: DeliveryDetailsListData;
 }
 
 interface SetLoadingAction {
@@ -38,13 +38,13 @@ interface SetErrorAction {
 	type: typeof SET_ERROR;
 	payload: string;
 }
-export type DelieveryAction =
-	| GetDeliveryListAction
+export type DeliveryDetailsAction =
+	| GetDeliveryDetailsListAction
 	| SetLoadingAction
   | SetErrorAction;
   
-  export interface DeliveryListState {
-    data: DeliveryListData[] | null;
+  export interface DeliveryDetailsListState {
+    data: DeliveryDetailsListData | null;
     loading: boolean;
     error: string;
   }

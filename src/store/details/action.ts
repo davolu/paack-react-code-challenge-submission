@@ -1,15 +1,17 @@
 import { ThunkAction } from 'redux-thunk';
 import DeliveryDataService from "../../services/delivery.service";
 import { RootState } from '../';
-import { FETCH_DELIVERIES,DelieveryAction,  SET_LOADING, SET_ERROR } from './types'
+import { GET_DELIVERY_DETAILS,DeliveryDetailsAction,  SET_LOADING, SET_ERROR } from './types'
 
-export const getDeliveryList = (): ThunkAction<void, RootState, null, DelieveryAction> => {
+ 
+
+export const getDeliveryDetails = (id:string): ThunkAction<void, RootState, null, DeliveryDetailsAction> => {
     return async dispatch => {
         try {
-            DeliveryDataService.getListDelivery()
+            DeliveryDataService.getDeliveryListDetails(id)
             .then((response: any) => {
                 dispatch({
-                    type: FETCH_DELIVERIES,
+                    type: GET_DELIVERY_DETAILS,
                     payload: response.data
                 });
             })
@@ -29,16 +31,13 @@ export const getDeliveryList = (): ThunkAction<void, RootState, null, DelieveryA
     }
 }
 
-
- 
-
-export const setLoading = (): DelieveryAction => {
+export const setLoading = (): DeliveryDetailsAction => {
     return {
         type: SET_LOADING
     }
 }
 
-export const setError = (): DelieveryAction => {
+export const setError = (): DeliveryDetailsAction => {
     return {
         type: SET_ERROR,
         payload: ''
