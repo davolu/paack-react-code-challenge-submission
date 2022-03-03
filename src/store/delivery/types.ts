@@ -28,7 +28,7 @@ export interface DeliveryError {
 }
 interface GetDeliveryListAction {
 	type: typeof FETCH_DELIVERIES;
-	payload: DeliveryListData[];
+	payload: DeliveryListData[] | null;
 }
 
 interface SetLoadingAction {

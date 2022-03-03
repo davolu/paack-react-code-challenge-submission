@@ -30,6 +30,7 @@ const Home:React.FC  =  () => {
               deliveryData && 
               deliveryData.map(item => (
                   <div key={item.id}>
+                    {console.log(JSON.stringify(item))}
                   <DeliveryListItem data={item}/> 
                   </div>
                 ))

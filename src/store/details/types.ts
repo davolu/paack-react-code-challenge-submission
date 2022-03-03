@@ -35,7 +35,7 @@ export interface DeliveryDetailsError {
 }
 interface GetDeliveryDetailsListAction {
 	type: typeof GET_DELIVERY_DETAILS;
-	payload: DeliveryDetailsListData;
+	payload: DeliveryDetailsListData | null;
 }
 
 interface SetLoadingAction {

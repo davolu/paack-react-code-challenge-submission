@@ -15,7 +15,7 @@ export default class ErrorBoundary extends React.Component<{}, { hasError: boole
 
     render() {
         if (this.state.hasError) {   
-            return <h1>Oops!. Something went wrong.</h1>;
+            return <h1 data-testid="errorboundary">Oops!. Something went wrong.</h1>;
         }
         return this.props.children;
     }
